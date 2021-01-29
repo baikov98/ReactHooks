@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState,  } from 'react'
-import Alert from './Alert'
+import Alert from './alert/Alert'
 import Main from './Main'
 
 export const AlertContext = React.createContext()
