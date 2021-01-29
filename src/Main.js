@@ -6,7 +6,7 @@ export default function Main() {
     return (
         <>
             <h1>ПРивет в примере с Context</h1>
-            <button onClick={show} className='btn btn-success'>Показать алерт</button>
+            <button onClick={() => show('text is main.js')} className='btn btn-success'>Показать алерт</button>
         </>
     )
 }

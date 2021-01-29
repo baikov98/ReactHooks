@@ -6,7 +6,7 @@ export default function Alert() {
     if (!alert.visible) return null
     return (
         <div className='alert alert-danger' onClick={alert.hide}>
-            Это важное сообщение
+            {alert.text}
         </div>
     )
 }
