@@ -1,30 +1,35 @@
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 
-let ren = 1
+function complexCompute(num) {
+  let i = 0
+  while(i < 100000000) i++
+  return num*2
+}
+
 function App() {
+  
+  const [number, setNumber] = useState(42)
+  const [colored, setColored] = useState(false)
+  const computed = useMemo(() => {
+    return complexCompute(number)}, [number])
+    
+  const styles = useMemo(() => ({
+    color: colored ? 'red':'black'
+  }), [colored])
+    
 
-  const [value, setValue] = useState('initial')
-  const renderCount = useRef(1)
-  const inputRef = useRef(null)
-  const prevValue = useRef('')
   useEffect(() => {
-    renderCount.current++
-    console.log(inputRef.current.value)
-  })
-
-  useEffect(() => {
-    prevValue.current = value
-  }, [value])
-  const focus = () => inputRef.current.focus()
-
+    console.log('chan')
+  }, [styles])
+  
   return (
-    <div>
-      <h1>kolwo  {renderCount.current}</h1>
-      <h2>Прошлое сост - {prevValue.current}</h2>
-      <input ref={inputRef} type='text' value={value} onChange={ (e) => setValue(e.target.value) }></input>
-      <button className='btn btn-success' onClick={focus}>FOCUS</button>
-    </div>
+    <>
+      <h1 style={styles}>Выч свойство - {computed}</h1>
+      <button onClick={() => setNumber(prev => prev +1)}>Добавить</button>
+      <button onClick={() => setNumber(prev => prev -1)}>Убрать</button>
+      <button onClick={() => setColored(prev => !prev)}>Izmenit</button>
+    </>
   )
 }
 export default App;
