@@ -15,7 +15,7 @@ function App() {
     <AlertContext.Provider value={alert}>
     <div className={'container'}>
     <Alert/>
-      <Main />
+      <Main toggle={toggleAlert}/>
     </div>
     </AlertContext.Provider>
   )
