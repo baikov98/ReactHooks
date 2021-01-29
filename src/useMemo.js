@@ -10,6 +10,7 @@ function App() {
   
   const [number, setNumber] = useState(42)
   const [colored, setColored] = useState(false)
+  
   const computed = useMemo(() => {
     return complexCompute(number)}, [number])
     
