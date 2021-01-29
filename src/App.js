@@ -1,19 +1,14 @@
 
 import React, { useEffect, useState,  } from 'react'
-import Alert from './alert/Alert'
-import Main from './Main'
-import {AlertProvider} from './alert/AlertContext'
+
 
 function App() {
 
 
   return (
-    <AlertProvider>
-    <div className={'container'}>
-    <Alert/>
-      <Main toggle={() => {}}/>
+    <div className={'container pt-3'}>
+
     </div>
-    </AlertProvider>
   )
 }
 export default App;
