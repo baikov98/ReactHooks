@@ -5,7 +5,7 @@ export default function Alert() {
     const alert = useAlert()
     if (!alert.visible) return null
     return (
-        <div className='alert alert-danger' onClick={alert.toggle}>
+        <div className='alert alert-danger' onClick={alert.hide}>
             Это важное сообщение
         </div>
     )
